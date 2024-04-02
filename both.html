@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Protected Interface</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  }
+  table {
+    border-collapse: collapse;
+    width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    display: none; /* Initially hidden */
+  }
+  th, td {
+    padding: 10px; /* Reduced padding */
+    text-align: center;
+  }
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  td {
+    background-color: #fff;
+    /* Removed text color transition */
+  }
+  tr:hover td {
+    background: linear-gradient(to right, #4CAF50, #00bcd4); /* Change the colors here */
+  }
+  a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #4CAF50;
+  }
+  .password-form {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.5s ease;
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  input[type="password"]:focus {
+    border-color: #007bff;
+  }
+  button {
+    width: calc(100% - 20px);
+    padding: 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  h2 {
+    background: linear-gradient(to right, #65ffed, #7054ff); /* Gradient color */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="password-form">
+  <h2>Welcome</h2>
+  <p style="text-align: center;">Please enter the password to access the site.</p>
+  <input type="password" id="password" placeholder="Enter Password" onkeydown="if(event.keyCode==13) checkPassword()">
+  <button onclick="checkPassword()">Submit</button>
+</div>
+
+<table id="chip-collection" align="center">
+  <tr>
+    <th colspan="2">Chips Collection</th>
+  </tr>
+  <tr>
+    <td><a href="https://drive.google.com/drive/folders/15MfM3-tUnoffl8r0lYEFMmFSMEnANSyA?usp=drive_link">1. Chip o-i</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://drive.google.com/drive/folders/1FnoxFMOitiy4uM4_bYdllIUsvVVUIqPQ?usp=sharing">2. Chip o-ii</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://drive.google.com/drive/u/4/home">3. Chip o-iii</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://drive.google.com/drive/u/5/home">4. Chip o-iv</a></td>
+  </tr>
+</table>
+
+<script>
+function checkPassword() {
+  var password = document.getElementById("password").value;
+  // Change "your_password" to your desired password
+  if (password === "1190148") {
+    document.querySelector('.password-form').style.display = 'none'; // Hide password form
+    document.getElementById('chip-collection').style.display = 'table'; // Show chip collection table
+  } else {
+    alert("Incorrect password. Please try again.");
+    document.getElementById("password").value = ""; // Clear the input field
+  }
+}
+</script>
+
+</body>
+</html>
